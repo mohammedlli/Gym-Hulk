@@ -10,9 +10,13 @@ import {PauseOutlined,CaretRightOutlined } from '@ant-design/icons';
 
 
 export default function AddCostmer(){
+    let de=new Date();
+
     const [name,setName] = useState('');
     const [gender,setGender] = useState('');
     const [numberphone,setNumberphone] = useState('');
+
+
     const [day_1,setDay_1] = useState('');
     const [mounth_1,setMounth_1] = useState('');
     const [year_1,setYear_1] = useState('');
@@ -20,6 +24,10 @@ export default function AddCostmer(){
     const [day_2,setDay_2] = useState('');
     const [mounth_2,setMounth_2] = useState('');
     const [year_2,setYear_2] = useState('');
+
+    const [dateStart,setDateStart] = useState(de.getMonth()+1+"/"+de.getDate());
+    const [dateEnd,setDateEnd] = useState("");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -32,6 +40,9 @@ export default function AddCostmer(){
             day_2,
             mounth_2,
             year_2,
+            dateStart,
+            dateEnd,
+            gender,
         });
         } catch (err) {
         console.log(err);
@@ -78,15 +89,18 @@ export default function AddCostmer(){
             <div className="input">
                 <span >بدأ الاشتراك</span>
                 <div>
-                <InputNumber
+                <Input
+                style={{color:"black"}}
                 value={year_1}
                 onChange={(e)=>setYear_1(e.target.value)}
                 className="input1" placeholder="سنة"       />
-                <InputNumber
+                <Input
+                style={{color:"black"}}
                 value={day_1}
                 onChange={(e)=>setDay_1(e.target.value)}
                 className="input1" placeholder="يوم"   min={1} max={32}     />
-                <InputNumber 
+                <Input
+                style={{color:"black"}} 
                 value={mounth_1}
                 onChange={(e)=>setMounth_1(e.target.value)}
                 className="input1" placeholder="شهر"  min={1} max={12}   />
@@ -95,22 +109,25 @@ export default function AddCostmer(){
             <div className="input">
                 <span>نهاية الاشتراك</span>
                 <div>
-                <InputNumber
+                <Input
+                style={{color:"black"}}
                 value={year_2}
                 onChange={(e)=>setYear_2(e.target.value)}
                 className="input1" placeholder="سنة"   min={2000} max={100000}     />
-                <InputNumber
+                <Input
+                style={{color:"black"}}
                 value={day_2}
                 onChange={(e)=>setDay_2(e.target.value)}
                 className="input1" placeholder="يوم"   min={1} max={32}     />
-                <InputNumber 
+                <Input
+                style={{color:"black"}} 
                 value={mounth_2}
                 onChange={(e)=>setMounth_2(e.target.value)}
                 className="input1" placeholder="شهر"  min={1} max={12}   />
                 </div>
             </div>
     </div>
-    <Button className="input" type="primary" >
+    <Button htmlType="submit" className="input" type="primary" >
             اشتراك
         </Button>
     </Form>

@@ -23,8 +23,8 @@ import { Outlet } from 'react-router-dom';
     getItem("الرئيسية", '/', <PieChartOutlined />),
     getItem("اشتراك جديد", '/1', <DesktopOutlined />),
     getItem("المشتركين", 'sub1',<TeamOutlined />, [
-        getItem('رجال', '3'),
-        getItem('نساء', '4'),
+        getItem('رجال', '2'),
+        getItem('نساء', '3'),
     ]),
     getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
     getItem('Files', '9', <FileOutlined />),
@@ -53,7 +53,7 @@ import { Outlet } from 'react-router-dom';
             }}
             items={items} />
         </Sider>
-        <Layout  >
+        <Layout>
             <Header
             style={{
                 padding: 0,

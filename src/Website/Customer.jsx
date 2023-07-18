@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { db } from "../Firebase/Firebase";
-import {collection,query,onSnapshot,deleteDoc,doc,updateDoc} from 'firebase/firestore';
-import { Table} from 'antd';
-export default function ShowCostmer({gender}){
+import {collection,addDoc,query,onSnapshot,deleteDoc,doc,updateDoc} from 'firebase/firestore';
+import { Space, Table, Tag } from 'antd';
+export default function Costmer({gender}){
 
 
 
@@ -55,30 +55,3 @@ columns={[
 dataSource={y}/>
     </>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let de=new Date();
-// const y=newReviewers.filter((d)=>{
-//     console.log(Number(d.mounth),"mounth",de.getMonth()+1,de.getDate(),Number(d.day));
-
-//     if(de.getFullYear()===Number(d.year) && 
-//     (Number(d.mounth)<de.getMonth()+1 && de.getDate()===Number(d.day)))
-//     return newReviewers
-// })

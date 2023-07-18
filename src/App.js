@@ -2,8 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import AddCostmer from './Website/AdditionCostmer';
 import { Route, Routes } from 'react-router-dom';
-import ShowCostmer from './Website/ShowCustomers';
 import MainDashbord from './Website/MainDashbord';
+import TabsPage from './Website/Tabs';
+import TabsFemal from './Website/TabsFemal';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Route>
       <Route path='/' element={<MainDashbord/>}>
       <Route path='1' element={<AddCostmer/>}/>
-      <Route path='2' element={<ShowCostmer/>}/>
+      <Route path='2' element={<TabsPage/>}/>
+      <Route path='3' element={<TabsFemal/>}/>
       </Route>
       </Route>
       </Routes>
