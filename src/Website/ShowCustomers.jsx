@@ -27,16 +27,6 @@ export default function ShowCostmer({gender}){
         }
     }
 
-    const handleSubmit = async (id) => {
-        try {
-        await updateDoc(doc(db, 'costemer', id), {
-            
-        });
-        } catch (err) {
-        alert(err);
-        }
-        
-    };
 let de=new Date();
 const y=townewReviewrs.filter((d)=>{
     console.log(de.getDate(),Number(d.day_2), de.getMonth()+1,Number(d.mounth_2));

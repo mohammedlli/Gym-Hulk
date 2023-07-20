@@ -1,4 +1,4 @@
-  body {
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Cairo&family=Kufam:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800&family=Lato:wght@300;400;700;900&family=Lemonada&family=Montserrat:wght@100;700;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;1,100&family=Roboto:wght@100;300;400;500;700&family=Tajawal:wght@300;500&display=swap');  body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -24,7 +24,82 @@
 .input1{
   width: 20%;
   margin-left: 3px;
-  color: #f4f4f4
+  color: #f4f4f4;
+}
+.alert-true{
+  width:23%;
+  position:fixed;
+  top:25%;
+  transition: 1s;
+
+} 
+  .demo-logo-vertical {
+    text-align: center;
+      padding: 5px;
+      height: 32px;
+      margin: 16px ;
+      background: rgba(255,255,255,.2);
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      overflow: hidden;
+}
+.tital-subsicraib{
+  margin-bottom:30px;
+  display:flex;
+  justify-content:center;
+  background-color:#EFEEEE;
+    font-weight:600;
+    font-size:large;
+    color:#1677FF;
+    padding-bottom:5px;
+    box-shadow:0 0 3px -1px gray;
+}
+.custom-color-delete{
+  background-color:#f8d7da;
+  transition: 0.3s;
+}
+.custom-color-delete:hover{
+  background-color:#fbc7cc;
+}
+.custom-color-update{
+  background-color:#d7daf8;
+}
+.custom-color-update:hover{
+  background-color:#c7cbfa;
+  transition: 0.3s;
+}
+.icon-action{
+  padding:5px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+.close{
+  background-color:white;
+  box-shadow:0 0 6px -3px gray;
+  border-radius:10px;
+  padding: 10px;
+}
+.update-form{
+  text-align: center;
+}
+
+.spinner-container-submit{
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(216, 216, 216, 0.586);
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+.delete-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media all and (max-width: 950px) {
   .inside-container-form{
@@ -38,5 +113,13 @@
     width: 30%;
     margin-left: 3px;
     color: #e8e8e8;
+
+    }
+    .alert-true{
+      width:66%;
+      height: 60px;
+      position:fixed;
+      top:50%;
+      transform:0.3s;
     }
 }

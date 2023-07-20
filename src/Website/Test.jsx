@@ -1,19 +1,17 @@
-import { useState } from "react";
+import {doc,updateDoc} from 'firebase/firestore';
 import { db } from "../Firebase/Firebase";
-import {collection,addDoc} from 'firebase/firestore';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { UserOutlined ,PhoneOutlined} from '@ant-design/icons';
-import { Form, Input, Button,Select, message} from 'antd';
-import {useNavigate } from "react-router-dom";
+import { Form, Input, Button,Select} from 'antd';
+import { useNavigate } from 'react-router-dom';
 
+export default function Test(firbas,idr){
 
-export default function AddCostmer(){
     const navigate = useNavigate();
 
-    const [name,setName] = useState('');
-    const [gender,setGender] = useState('');
-    const [numberphone,setNumberphone] = useState('');
-
+    const [name,setName] = useState("");
+    const [gender,setGender] = useState( "");
+    const [numberphone,setNumberphone] = useState("");
 
     const [day_1,setDay_1] = useState('');
     const [mounth_1,setMounth_1] = useState('');
@@ -22,14 +20,12 @@ export default function AddCostmer(){
     const [day_2,setDay_2] = useState('');
     const [mounth_2,setMounth_2] = useState('');
     const [year_2,setYear_2] = useState('');
-    const [loading, setLoding] = useState(false);
-    const [err, setErr] = useState("");
-    const [messageApi, contextHolder] = message.useMessage();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(e);
         try {
-        await addDoc(collection(db,'costemer'), {
+        await updateDoc(doc(db, 'costemer','5g7qT169NHvnXhOAuzeP'), {
             name,
             numberphone,
             day_1,
@@ -40,19 +36,11 @@ export default function AddCostmer(){
             year_2,
             gender,
         });
-        messageApi.open({
-            type: 'success',
-            content: 'تم ',
-            className: 'custom-class',
-        });
-        setLoding(true);
-        setErr("تم اضافة مشترك جديد بنجاح");
-        navigate("/2");
         } catch (err) {
+        alert(err);
         console.log(err);
-        setLoding(true);
-        setErr("خطاء في التسجيل");
         }
+        
     };
     const options = [];
     options.push({
@@ -64,13 +52,11 @@ export default function AddCostmer(){
     const handleChange = (value) => {
         setGender(value);
     };
-
-    return(<>
-        {contextHolder}
-    <div  className="tital-subsicraib">انشاء اشتراك  </div>
-<div className="container-form">
-<div className="inside-container-form" >
-    <Form className="form" onSubmitCapture={handleSubmit}>
+    return(
+        <>
+            <div className='spinner-container-submit'>
+                <div className='update-form'>
+                <Form className="form" onSubmitCapture={handleSubmit}>
         <div>
             <Input className="input" value={name}
             onChange={(e)=>setName(e.target.value)}
@@ -138,9 +124,8 @@ export default function AddCostmer(){
             اشتراك
         </Button>
     </Form>
-    
     </div>
     </div>
-    </>
-    );
-};
+        </>
+    )
+}

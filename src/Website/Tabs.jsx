@@ -9,14 +9,15 @@ export default function TabsPage(){
     }
     console.log(end);
     return(<>
+     <div className="tital-subsicraib">جميع المشتركين</div>
         <Tabs
         defaultActiveKey="5 " 
         centered
         onClick={model}
         items={[
-            {label:"جميع المشتركين",key:"1",children: <ShowMaleCustmerEnd/>},
+            {label:"اشتراك فعال",key:"1",children: <ShowMaleCustmerEnd/>},
                 {label:"",key:"2"},
-                {label:"النافذ",key:"3",children: <MaleFilter/>},
+                {label:"اشتراك نافذ",key:"3",children: <MaleFilter/>},
         ]}
         />
     </>)

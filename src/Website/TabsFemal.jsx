@@ -4,13 +4,14 @@ import { useState } from "react";
 import ShowFemalCustmer from "./ShowFemalCustomer";
 export default function TabsFemal(){
     return(<>
+        <div className="tital-subsicraib">جميع  المشتركات</div>
         <Tabs
         defaultActiveKey="5 " 
         centered
         items={[
-            {label:"جميع المشتركين",key:"1",children: <ShowFemalCustmer/>},
+            {label:"اشتراك فعال",key:"1",children: <ShowFemalCustmer/>},
                 {label:"",key:"2"},
-                {label:"النافذ",key:"3",children: <FemaleFilter/>},
+                {label:"اشتراك نافذ",key:"3",children: <FemaleFilter/>},
         ]}
         />
     </>)

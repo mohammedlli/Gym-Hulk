@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import MainDashbord from './Website/MainDashbord';
 import TabsPage from './Website/Tabs';
 import TabsFemal from './Website/TabsFemal';
+import Test from './Website/Test';
+import UpdateCustmer from './Website/UpdateCustmer';
 
 function App() {
   return (

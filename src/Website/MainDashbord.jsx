@@ -5,7 +5,8 @@ import {
     FileOutlined,
     PieChartOutlined,
     TeamOutlined,
-    UserOutlined,
+    GithubOutlined,
+    LinkedinFilled ,
     } from '@ant-design/icons';
     import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
@@ -41,8 +42,11 @@ import { Outlet } from 'react-router-dom';
             minHeight: '100vh',
         }}
         >
-        <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-            <div className="demo-logo-vertical" />
+        <Sider
+        collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+            <div className="demo-logo-vertical" >
+                HULK GYM
+            </div>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" 
             onClick={({key})=>{
                 if(key=== "singout"){
@@ -52,19 +56,22 @@ import { Outlet } from 'react-router-dom';
                 }
             }}
             items={items} />
-        </Sider>
+            
+            </Sider>
         <Layout>
             <Header
             style={{
                 padding: 0,
-                background: colorBgContainer,
+                background: "#EFEEEE",
                 fontSize:"40px",
                 fontWeight:"600",
-                color:"#1677FF",
+                backgroundColor:"#EFEEEE",
                 display:"flex",
-                justifyContent:"center"
+                justifyContent:"center",
+                boxShadow:"0px 0px 3px -1px inset",
+                
             }}
-            >HULK</Header>
+            ><span style={{color:"#1677FF"}}>GYM</span>HULK</Header>
             <Content
             style={{
                 margin: '0 16px',
@@ -81,7 +88,7 @@ import { Outlet } from 'react-router-dom';
                 
                 }}
             >
-            <Breadcrumb.Item>GYM</Breadcrumb.Item>
+            <Breadcrumb.Item></Breadcrumb.Item>
             </Breadcrumb>
             <div
                 style={{
@@ -96,9 +103,16 @@ import { Outlet } from 'react-router-dom';
             <Footer
             style={{
                 textAlign: 'center',
+                boxShadow:"0 0 2.5px -1px ",
             }}
             >
-            Created by Mohammedlli ©2023 to HULK GYM
+                <div style={{display:"flex", justifyContent:"space-around"}}>
+                <div>
+                <div>mohammedlli  <GithubOutlined /> </div>
+                <div>Linkedin : <LinkedinFilled /> </div>
+                </div>
+            <div>Created by Mohammed Ahmed ©2023 to HULK GYM</div>
+            </div>
             </Footer>
         </Layout>
         </Layout>

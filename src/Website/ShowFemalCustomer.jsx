@@ -1,7 +1,7 @@
-import ShowCostmer from "./ShowCustomers";
+import Customer from "./Customer";
 export default function ShowFemalCostmer(){
 return <>
-<ShowCostmer
+<Customer
 gender="انثى"/>
 </>
 }
