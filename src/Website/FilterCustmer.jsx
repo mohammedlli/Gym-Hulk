@@ -46,9 +46,9 @@ const y=townewReviewrs.filter((d)=>{
 })
 
 return<>    <TableContainer component={Paper}>
-<Table sx={{ minWidth: 650 }} aria-label="simple table">
+<Table sx={{ minWidth: 650 , backgroundColor:"#f8d7dad0"}} aria-label="simple table">
     <TableHead>
-     <TableRow sx={{backgroundColor:"#efeeee",boxShadow:"0 0 5px -1px"}}>
+    <TableRow sx={{backgroundColor:"#efeeee",boxShadow:"0 0 5px -1px"}}>
         <TableCell style={{fontFamily: "'Noto Sans Arabic', sans-serif",fontWeight:"600"}}align="center">N.</TableCell>
         <TableCell style={{fontFamily: "'Noto Sans Arabic', sans-serif",fontWeight:"600"}}align="center">الاسم</TableCell>
         <TableCell style={{fontFamily: "'Noto Sans Arabic', sans-serif",fontWeight:"600"}} align="center">رقم الهاتف</TableCell>

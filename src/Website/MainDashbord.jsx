@@ -7,6 +7,7 @@ import {
     TeamOutlined,
     GithubOutlined,
     LinkedinFilled ,
+    LogoutOutlined,
     } from '@ant-design/icons';
     import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
@@ -55,8 +56,19 @@ import { Outlet } from 'react-router-dom';
                     navigate(key);
                 }
             }}
-            items={items} />
-            
+            items={items}/>
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" 
+            style={{marginTop:"180px"}}
+            onClick={({key})=>{
+                if(key=== "singout"){
+
+                }else{
+                    navigate(key);
+                }
+            }}
+            items={[
+                {label:"تسجيل خروج",key:"singout",icon:<LogoutOutlined />}
+            ]}/>
             </Sider>
         <Layout>
             <Header

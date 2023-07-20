@@ -6,8 +6,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { DeleteOutlined,RetweetOutlined,CloseOutlined} from '@ant-design/icons';
-import { Result } from 'antd';
+import { DeleteOutlined,RetweetOutlined,CloseOutlined,SearchOutlined} from '@ant-design/icons';
+import { Input, Result } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { db } from "../Firebase/Firebase";
@@ -27,7 +27,7 @@ export default function Costmer({gender}){
     const [delet , setDelte] = useState(false);
     const [deleteName , setDelteName] = useState(false);
     const [deleteID,setDeleteID] = useState('');
-
+    const [search , setSearch] = useState('');
 
     function handelDelete(idd,nd){
         setDelteName(nd);
@@ -59,10 +59,15 @@ const y=townewReviewrs.filter((d)=>{
     if(d.gender === gender)
     return townewReviewrs;
 })
-
+const mainRev = y.filter((user)=>
+user.name.toLowerCase().includes(search) || user.numberphone.toLowerCase().includes(search))
 return<> 
+<div className='search'>
+<Input className="input-search" value={search}
+            onChange={(e)=>setSearch(e.target.value)}
+            size="large" placeholder="البحث" prefix={<SearchOutlined />} /></div>
     <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 650}} aria-label="simple table">
             <TableHead>
             <TableRow sx={{backgroundColor:"#efeeee",boxShadow:"0 0 5px -1px"}}>
                 <TableCell style={{fontFamily: "'Noto Sans Arabic', sans-serif",fontWeight:"600"}}align="center">N.</TableCell>
@@ -75,7 +80,7 @@ return<>
             </TableRow>
             </TableHead>
             <TableBody>
-            {y.map((row,index) => (
+            {mainRev.map((row,index) => (
                 <>
                 <TableRow key={row.index}>
                 <TableCell style={{fontFamily: "'Noto Sans Arabic', sans-serif"}}align="center">{index+1}</TableCell>

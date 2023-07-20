@@ -42,7 +42,7 @@ export default function AddCostmer(){
         });
         messageApi.open({
             type: 'success',
-            content: 'تم ',
+            content: 'تم اضافه مشترك جديد',
             className: 'custom-class',
         });
         setLoding(true);
@@ -72,19 +72,19 @@ export default function AddCostmer(){
 <div className="inside-container-form" >
     <Form className="form" onSubmitCapture={handleSubmit}>
         <div>
-            <Input className="input" value={name}
+            <Input style={{boxShadow:' 0 0 4px -3px'}} className="input" value={name}
             onChange={(e)=>setName(e.target.value)}
             size="large" placeholder="الاسم الثلاثي" prefix={<UserOutlined />} />
-            <Input className="input" value={numberphone}
+            <Input style={{boxShadow:' 0 0 4px -3px'}} className="input" value={numberphone}
             onChange={(e)=>setNumberphone(e.target.value)}
             size="large" placeholder="رقم الهاتف" prefix={<PhoneOutlined />} />
                     <Select
-                    
                     className="input"
                     defaultValue="الجنس"
                     onChange={handleChange}
                     style={{
                     width: 100,
+                    boxShadow:' 0 0 4px -3px'
                     }}
                     options={[
                         {value:"ذكر"},
