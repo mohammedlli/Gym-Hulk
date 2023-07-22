@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import AddCostmer from './Website/Addition/AdditionCostmer';
 import { Route, Routes } from 'react-router-dom';
 import MainDashbord from './Website/pages/MainDashbord';

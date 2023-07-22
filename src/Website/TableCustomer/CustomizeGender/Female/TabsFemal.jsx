@@ -1,6 +1,5 @@
 import { Tabs } from "antd";
 import FemaleFilter from "./FemaleFilter";
-import { useState } from "react";
 import ShowFemalCustmer from "./ShowFemalCustomer";
 export default function TabsFemal(){
     return(<>
