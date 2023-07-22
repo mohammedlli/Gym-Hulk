@@ -1,25 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
-import AddCostmer from './Website/AdditionCostmer';
+import AddCostmer from './Website/Addition/AdditionCostmer';
 import { Route, Routes } from 'react-router-dom';
-import MainDashbord from './Website/MainDashbord';
-import TabsPage from './Website/Tabs';
-import TabsFemal from './Website/TabsFemal';
-import Test from './Website/Test';
-import UpdateCustmer from './Website/UpdateCustmer';
-
+import MainDashbord from './Website/pages/MainDashbord';
+import TabsFemal from './Website/TableCustomer/CustomizeGender/Female/TabsFemal';
+import Login from './Auth/Authusers/Login';
+import AuthProvider from './Auth/context/AuthContext';
+import RequireAuth from './Auth/context/RequireAuth';
+import Home from './Website/pages/Home';
+import Update from './Auth/Authusers/Update';
+import Sinup from './Auth/Authusers/Sinup';
+import TabsMale from './Website/TableCustomer/CustomizeGender/Male/Tabsmale';
 function App() {
   return (
     <div dir='rtl' className="App">
+      <AuthProvider>
       <Routes>
-      <Route>
-      <Route path='/' element={<MainDashbord/>}>
-      <Route path='1' element={<AddCostmer/>}/>
-      <Route path='2' element={<TabsPage/>}/>
-      <Route path='3' element={<TabsFemal/>}/>
-      </Route>
+      <Route path='/login' element={<Login/>}/>
+      <Route element={<RequireAuth><MainDashbord/></RequireAuth>}>
+      <Route path='/' element={<RequireAuth><Home/></RequireAuth>}/>
+      <Route path='addcuostmer' element={<RequireAuth><AddCostmer/></RequireAuth>}/>
+      <Route path='male' element={<RequireAuth><TabsMale/></RequireAuth>}/>
+      <Route path='femal' element={<RequireAuth><TabsFemal/></RequireAuth>}/>
+      <Route path='register' element={<RequireAuth><Sinup/></RequireAuth>}/>
+      <Route path='update' element={<RequireAuth><Update/></RequireAuth>}/>
       </Route>
       </Routes>
+      </AuthProvider>
     </div>
   );
 }

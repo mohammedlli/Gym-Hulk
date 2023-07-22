@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
+    SettingOutlined,
+    UserAddOutlined,
+    PlusCircleOutlined,
     TeamOutlined,
     GithubOutlined,
     LinkedinFilled ,
@@ -11,6 +12,7 @@ import {
     } from '@ant-design/icons';
     import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import { Outlet } from 'react-router-dom';
+import { useAuth } from '../../Auth/context/AuthContext';
     const { Header, Content, Footer, Sider } = Layout;
     function getItem(label, key, icon, children) {
     return {
@@ -22,21 +24,30 @@ import { Outlet } from 'react-router-dom';
     };
     }
     const items = [
-    getItem("الرئيسية", '/', <PieChartOutlined />),
-    getItem("اشتراك جديد", '/1', <DesktopOutlined />),
-    getItem("المشتركين", 'sub1',<TeamOutlined />, [
-        getItem('رجال', '2'),
-        getItem('نساء', '3'),
+    getItem("الصفحة الرئيسية", '1', <DesktopOutlined />),
+    getItem("اشتراك جديد", '/addcuostmer', <PlusCircleOutlined />),
+    getItem("المشتركين", '',<TeamOutlined />, [
+        getItem('رجال', 'male'),
+        getItem('نساء', 'femal'),
     ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('انشاء حساب', '/register', <UserAddOutlined />),
+    getItem('تعديل الحساب', '/update', <SettingOutlined />),
+
     ];
     const MainDashbord = () => {
+        const navigate = useNavigate();
+    const { currentUser, logout } = useAuth();
+    async function handleLogout() {
+        try {
+        await logout();
+        navigate("/login");
+        } catch {        }
+    }
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-    const navigate = useNavigate();
+
     return (
         <Layout
         style={{
@@ -48,20 +59,20 @@ import { Outlet } from 'react-router-dom';
             <div className="demo-logo-vertical" >
                 HULK GYM
             </div>
-            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" 
+            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline"
             onClick={({key})=>{
-                if(key=== "singout"){
-
+                if(key=== "1"){
+                    navigate("/");
                 }else{
                     navigate(key);
                 }
             }}
             items={items}/>
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" 
-            style={{marginTop:"180px"}}
+            style={{marginTop:"50px"}}
             onClick={({key})=>{
                 if(key=== "singout"){
-
+                    handleLogout();
                 }else{
                     navigate(key);
                 }
@@ -81,7 +92,6 @@ import { Outlet } from 'react-router-dom';
                 display:"flex",
                 justifyContent:"center",
                 boxShadow:"0px 0px 3px -1px inset",
-                
             }}
             ><span style={{color:"#1677FF"}}>GYM</span>HULK</Header>
             <Content
@@ -120,8 +130,10 @@ import { Outlet } from 'react-router-dom';
             >
                 <div style={{display:"flex", justifyContent:"space-around"}}>
                 <div>
-                <div>mohammedlli  <GithubOutlined /> </div>
-                <div>Linkedin : <LinkedinFilled /> </div>
+                <div>
+                <a href='https://github.com/mohammedlli' style={{color:"black"}}>mohammedlli  <GithubOutlined /> </a> </div>
+                <div> <a href='https://www.linkedin.com/in/mohammedahmed00/' style={{color:"black"}}>Linkedin  <LinkedinFilled /> 
+                </a></div>
                 </div>
             <div>Created by Mohammed Ahmed ©2023 to HULK GYM</div>
             </div>

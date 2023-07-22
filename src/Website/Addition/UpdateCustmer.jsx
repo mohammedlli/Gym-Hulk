@@ -1,18 +1,9 @@
 import {doc,updateDoc} from 'firebase/firestore';
-import { db } from "../Firebase/Firebase";
-import React, { useEffect, useState } from 'react';
-import { UserOutlined ,PhoneOutlined} from '@ant-design/icons';
+import { db } from "../../Firebase/Firebase";
+import { useState } from 'react';
 import { Form, Input, Button, message} from 'antd';
-import { useNavigate } from 'react-router-dom';
 
 export default function UpdateCustmer({idr,nameu}){
-
-    const navigate = useNavigate();
-
-    const [name,setName] = useState("");
-    const [gender,setGender] = useState( "");
-    const [numberphone,setNumberphone] = useState("");
-
     const [day_1,setDay_1] = useState('');
     const [mounth_1,setMounth_1] = useState('');
     const [year_1,setYear_1] = useState('');
@@ -62,45 +53,51 @@ export default function UpdateCustmer({idr,nameu}){
             <div className="input">
                 <span >بدأ الاشتراك</span>
                 <div>
-                <Input
-                style={{color:"black"}}
-                value={year_1}
-                onChange={(e)=>setYear_1(e.target.value)}
-                className="input1" placeholder="سنة"       />
-                <Input
-                style={{color:"black"}}
-                value={day_1}
-                onChange={(e)=>setDay_1(e.target.value)}
-                className="input1" placeholder="يوم"   min={1} max={32}     />
-                <Input
-                style={{color:"black"}} 
-                value={mounth_1}
-                onChange={(e)=>setMounth_1(e.target.value)}
-                className="input1" placeholder="شهر"  min={1} max={12}   />
+                    <Input
+                    value={year_1}
+                    onChange={(e)=>setYear_1(e.target.value)}
+                    className="input-date" 
+                    placeholder="السنة"       
+                    />
+                    <Input
+                    value={day_1}
+                    onChange={(e)=>setDay_1(e.target.value)}
+                    className="input-date" 
+                    placeholder="اليوم"  
+                    />
+                    <Input 
+                    value={mounth_1}
+                    onChange={(e)=>setMounth_1(e.target.value)}
+                    className="input-date" 
+                    placeholder="الشهر"
+                    />
                 </div>
             </div>
             <div className="input">
                 <span>نهاية الاشتراك</span>
                 <div>
-                <Input
-                style={{color:"black"}}
-                value={year_2}
-                onChange={(e)=>setYear_2(e.target.value)}
-                className="input1" placeholder="سنة"   min={2000} max={100000}     />
-                <Input
-                style={{color:"black"}}
-                value={day_2}
-                onChange={(e)=>setDay_2(e.target.value)}
-                className="input1" placeholder="يوم"   min={1} max={32}     />
-                <Input
-                style={{color:"black"}} 
-                value={mounth_2}
-                onChange={(e)=>setMounth_2(e.target.value)}
-                className="input1" placeholder="شهر"  min={1} max={12}   />
+                    <Input
+                    value={year_2}
+                    onChange={(e)=>setYear_2(e.target.value)}
+                    className="input-date" 
+                    placeholder="السنة"     
+                    />
+                    <Input
+                    value={day_2}
+                    onChange={(e)=>setDay_2(e.target.value)}
+                    className="input-date" 
+                    placeholder="اليوم"         
+                    />
+                    <Input 
+                    value={mounth_2}
+                    onChange={(e)=>setMounth_2(e.target.value)}
+                    className="input-date" 
+                    placeholder="الشهر" 
+                    />
                 </div>
             </div>
     </div>
-    <Button htmlType="submit" className="input" type="primary" >
+        <Button htmlType="submit" className="input" type="primary" >
             اشتراك
         </Button>
     </Form>

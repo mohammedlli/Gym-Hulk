@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { db } from "../Firebase/Firebase";
+import { db } from "../../Firebase/Firebase";
 import {collection,addDoc} from 'firebase/firestore';
 import React from 'react';
 import { UserOutlined ,PhoneOutlined} from '@ant-design/icons';
@@ -47,7 +47,7 @@ export default function AddCostmer(){
         });
         setLoding(true);
         setErr("تم اضافة مشترك جديد بنجاح");
-        navigate("/2");
+        navigate("/male");
         } catch (err) {
         console.log(err);
         setLoding(true);
@@ -66,75 +66,82 @@ export default function AddCostmer(){
     };
 
     return(<>
-        {contextHolder}
-    <div  className="tital-subsicraib">انشاء اشتراك  </div>
 <div className="container-form">
 <div className="inside-container-form" >
     <Form className="form" onSubmitCapture={handleSubmit}>
+    <div  className="form-title">انشاء اشتراك  </div>
         <div>
-            <Input style={{boxShadow:' 0 0 4px -3px'}} className="input" value={name}
+            <Input 
+            style={{  boxShadow: "1px 1px 3px #cbced1, -1px -1px 3px #fff"}} className="input" value={name}
             onChange={(e)=>setName(e.target.value)}
-            size="large" placeholder="الاسم الثلاثي" prefix={<UserOutlined />} />
-            <Input style={{boxShadow:' 0 0 4px -3px'}} className="input" value={numberphone}
+            size="large" placeholder="الاسم الثلاثي" 
+            prefix={<UserOutlined />} 
+            />
+            <Input 
+            style={{  boxShadow: "1px 1px 3px #cbced1, -1px -1px 3px #fff"}} 
+            className="input" 
+            value={numberphone}
             onChange={(e)=>setNumberphone(e.target.value)}
-            size="large" placeholder="رقم الهاتف" prefix={<PhoneOutlined />} />
-                    <Select
-                    className="input"
-                    defaultValue="الجنس"
-                    onChange={handleChange}
-                    style={{
-                    width: 100,
-                    boxShadow:' 0 0 4px -3px'
-                    }}
-                    options={[
-                        {value:"ذكر"},
-                        {value:"انثى"}
-                    ]}
-                    />
+            size="large" placeholder="رقم الهاتف" 
+            prefix={<PhoneOutlined />} 
+            />
+            <Select
+            className="input"
+            defaultValue="الجنس"
+            onChange={handleChange}
+            style={{
+            width: 100,
+            boxShadow:' 0 0 4px -3px'
+            }}
+            options={[
+                {value:"ذكر"},
+                {value:"انثى"}
+            ]}
+            />
         </div>
         <div>
             <div className="input">
                 <span >بدأ الاشتراك</span>
                 <div>
-                <Input
-                style={{color:"black"}}
-                value={year_1}
-                onChange={(e)=>setYear_1(e.target.value)}
-                className="input1" placeholder="سنة"       />
-                <Input
-                style={{color:"black"}}
-                value={day_1}
-                onChange={(e)=>setDay_1(e.target.value)}
-                className="input1" placeholder="يوم"   min={1} max={32}     />
-                <Input
-                style={{color:"black"}} 
-                value={mounth_1}
-                onChange={(e)=>setMounth_1(e.target.value)}
-                className="input1" placeholder="شهر"  min={1} max={12}   />
+                    <Input
+                    value={year_1}
+                    onChange={(e)=>setYear_1(e.target.value)}
+                    className="input-date" placeholder="السنة"       
+                    />
+                    <Input
+                    value={day_1}
+                    onChange={(e)=>setDay_1(e.target.value)}
+                    className="input-date" placeholder="اليوم"    
+                    />
+                    <Input
+                    value={mounth_1}
+                    onChange={(e)=>setMounth_1(e.target.value)}
+                    className="input-date" placeholder="الشهر"  
+                    />
                 </div>
             </div>
             <div className="input">
                 <span>نهاية الاشتراك</span>
                 <div>
-                <Input
-                style={{color:"black"}}
-                value={year_2}
-                onChange={(e)=>setYear_2(e.target.value)}
-                className="input1" placeholder="سنة"   min={2000} max={100000}     />
-                <Input
-                style={{color:"black"}}
-                value={day_2}
-                onChange={(e)=>setDay_2(e.target.value)}
-                className="input1" placeholder="يوم"   min={1} max={32}     />
-                <Input
-                style={{color:"black"}} 
-                value={mounth_2}
-                onChange={(e)=>setMounth_2(e.target.value)}
-                className="input1" placeholder="شهر"  min={1} max={12}   />
+                    <Input
+                    value={year_2}
+                    onChange={(e)=>setYear_2(e.target.value)}
+                    className="input-date" placeholder="السنة"   
+                    />
+                    <Input
+                    value={day_2}
+                    onChange={(e)=>setDay_2(e.target.value)}
+                    className="input-date" placeholder="اليوم"    
+                    />
+                    <Input
+                    value={mounth_2}
+                    onChange={(e)=>setMounth_2(e.target.value)}
+                    className="input-date" placeholder="الشهر"   
+                    />
                 </div>
             </div>
     </div>
-    <Button htmlType="submit" className="input" type="primary" >
+    <Button htmlType="submit" className="m-10" type="primary" >
             اشتراك
         </Button>
     </Form>

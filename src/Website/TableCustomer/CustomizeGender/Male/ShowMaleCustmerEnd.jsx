@@ -1,5 +1,5 @@
 
-import Customer from './Customer'
+import Customer from '../../Components/Customer'
 export default function ShowMaleCustmerEnd(){
     return<>
     <Customer

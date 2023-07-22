@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { db } from "../Firebase/Firebase";
-import {collection,query,onSnapshot,deleteDoc,doc,updateDoc} from 'firebase/firestore';
+import { db } from "../../../Firebase/Firebase";
+import {collection,query,onSnapshot,deleteDoc,doc} from 'firebase/firestore';
 import { SmileOutlined } from '@ant-design/icons';
-import { Button, Result } from 'antd';
+import { Result } from 'antd';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -12,9 +12,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
 export default function  FilterCustmer({gender}){
-
-
-
     const [townewReviewrs, setTowNewReviewrs] = useState([]);
     const [notFond , setNotFond] = useState(true);
     useEffect(() => {

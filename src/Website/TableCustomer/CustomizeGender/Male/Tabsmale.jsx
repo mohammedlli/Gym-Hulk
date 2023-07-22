@@ -2,14 +2,14 @@ import { Tabs } from "antd";
 import MaleFilter from "./MaleFilter";
 import { useState } from "react";
 import ShowMaleCustmerEnd from "./ShowMaleCustmerEnd";
-export default function TabsPage(){
+export default function TabsMale(){
     const [end , setEnd] = useState(true);
     const model =()=>{
         setEnd(!end);
     }
     console.log(end);
     return(<>
-     <div className="tital-subsicraib">جميع المشتركين</div>
+        <div className="tital-subsicraib">جميع المشتركين</div>
         <Tabs
         defaultActiveKey="5 " 
         centered
